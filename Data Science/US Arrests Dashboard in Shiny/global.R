@@ -1,0 +1,30 @@
+#Dataset
+library(dplyr)
+library(plotly)
+library(ggplot2)
+library(ggtext)
+library(ggcorrplot)
+
+
+df <- USArrests
+df %>% 
+  str()
+
+#df %>% 
+ # summary()
+
+#Assign States to columns
+states = rownames(df)
+df = df %>% 
+  mutate(State = states)
+
+
+#Choices for selectInput
+c1 <- df %>% 
+  select(-State) %>% 
+    names()
+
+c2 <- df %>% 
+  select(-"State", -"UrbanPop") %>% 
+  names()
+
