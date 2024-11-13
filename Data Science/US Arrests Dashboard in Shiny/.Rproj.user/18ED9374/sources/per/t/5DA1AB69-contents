@@ -107,4 +107,9 @@ function(input, output, session) {
       arrange(get(input$var2)) %>% 
       head(5)
   })
+ 
+  #Maps plot
+  output$map_plot <- renderPlot({
+   
+  })
 }

@@ -6,14 +6,19 @@ library(ggtext)
 library(ggcorrplot)
 library(maps)
 
+
 df <- USArrests
 df %>% 
   str()
+
+#df %>% 
+ # summary()
 
 #Assign States to columns
 states = rownames(df)
 df = df %>% 
   mutate(State = states)
+
 
 #Choices for selectInput
 c1 <- df %>% 

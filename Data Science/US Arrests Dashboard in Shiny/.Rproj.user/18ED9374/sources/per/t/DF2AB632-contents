@@ -12,7 +12,8 @@ dashboardPage(
       id = "sidebar",
       
       menuItem("Dataset", tabName = "dataset", icon = icon("database")),
-      menuItem("Visualization", tabName = "visualization", icon = icon("chart-line"))
+      menuItem("Visualization", tabName = "visualization", icon = icon("chart-line")),
+      menuItem("Map", tabName = "map", icon = icon("map"))
     )
   ),
   dashboardBody(
@@ -56,8 +57,16 @@ dashboardPage(
                               selectInput(inputId = "var3", label="Choose X axis", choices = c1, selected = "UrbanPop"),
                               selectInput(inputId = "var4", label="Choose Y axis", choices = c1, selected = "Rape"),
                               plotlyOutput("scatterplot"))
-              )
+              ),
+      
+      tabItem(tabName = "map",
+              box(selectInput("crimetype", "Select Arrest Type", choices = c2, selected = "Rape"),
+                  plotOutput("map_plot"), width = 12)
       )
-    ))
+    )
+  )
+  
+  )
+  
 )
 
